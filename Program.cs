@@ -1,0 +1,15 @@
+var builder = WebApplication.CreateBuilder(args);
+var app = builder.Build();
+
+app.MapGet("/", () => "Hello World!");
+
+app.Run();
+var builder = WebApplication.CreateBuilder(args);
+var app = builder.Build();
+
+var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
+app.Urls.Add($"http://0.0.0.0:{port}");
+
+app.MapGet("/", () => "Hello World from .NET on Render!");
+
+app.Run();
